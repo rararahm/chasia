@@ -163,7 +163,7 @@
           <p><strong>Mobile:</strong> 0939-617-6877 • 0917-812-4521 • 0922-838-8526 • 0922-838-8520</p>
           <p><strong>Email:</strong> info@chasia.com.ph</p>
         </div>
-        <form class="contact-form" action="mailto:gamboa.rhamuel@ue.edu.ph" method="post" enctype="text/plain">
+        <form id="contactForm" class="contact-form">
           <input type="text" name="name" placeholder="Your Name" required />
           <input type="email" name="email" placeholder="Your Email" required />
           <input type="text" name="subject" placeholder="Subject" required />
@@ -179,6 +179,20 @@
         <p>366 2nd Street, Brgy. 107, Caloocan City</p>
       </div>
     </footer>
+
+    <script>
+      document.getElementById('contactForm')?.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const name = document.querySelector('input[name="name"]').value.trim();
+        const email = document.querySelector('input[name="email"]').value.trim();
+        const subject = document.querySelector('input[name="subject"]').value.trim();
+        const message = document.querySelector('textarea[name="message"]').value.trim();
+
+        const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0A${message}`;
+        window.location.href = `mailto:gamboa.rhamuel@ue.edu.ph?subject=${encodeURIComponent(subject)}&body=${body}`;
+      });
+    </script>
   </body>
 </html>
 
