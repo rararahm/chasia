@@ -136,7 +136,7 @@
       { id: 'package-07', name: 'Substations', category: 'Package Products', description: 'Complete substation package solutions for transmission and distribution.' }
     ];
 
-    const selectedQuantities = new Map();
+    const selected = new Set();
     const productGrid = document.getElementById('productGrid');
     const selectedProductsEl = document.getElementById('selectedProducts');
     const selectedCountEl = document.getElementById('selectedCount');
@@ -172,39 +172,17 @@
         card.innerHTML = `
           <div class="product-card-head">
             <label class="checkbox-label">
-              <input type="checkbox" data-id="${product.id}" ${selectedQuantities.has(product.id) ? 'checked' : ''}>
+              <input type="checkbox" data-id="${product.id}" ${selected.has(product.id) ? 'checked' : ''}>
               <span>${product.name}</span>
-            </label>
-            <label class="quantity-label">
-              <span>Qty</span>
-              <input class="quantity-input" type="number" min="1" value="${selectedQuantities.get(product.id) || 1}" data-qty-id="${product.id}" ${selectedQuantities.has(product.id) ? '' : 'disabled'} />
             </label>
           </div>
           <p>${product.description}</p>
         `;
 
         const checkbox = card.querySelector('input[type="checkbox"]');
-        const quantityInput = card.querySelector('.quantity-input');
-
         checkbox.addEventListener('change', () => {
-          if (checkbox.checked) {
-            quantityInput.disabled = false;
-            selectedQuantities.set(product.id, Number(quantityInput.value) || 1);
-          } else {
-            quantityInput.disabled = true;
-            selectedQuantities.delete(product.id);
-          }
-          updateSelection();
-        });
-
-        quantityInput.addEventListener('input', () => {
-          const count = Math.max(1, Number(quantityInput.value) || 1);
-          quantityInput.value = count;
-          if (!checkbox.checked) {
-            checkbox.checked = true;
-            quantityInput.disabled = false;
-          }
-          selectedQuantities.set(product.id, count);
+          if (checkbox.checked) selected.add(product.id);
+          else selected.delete(product.id);
           updateSelection();
         });
 
@@ -214,25 +192,23 @@
 
     function updateSelection() {
       selectedProductsEl.innerHTML = '';
-      if (selectedQuantities.size === 0) {
+      if (selected.size === 0) {
         selectedCountEl.textContent = 'No products selected yet.';
         viewAllButton.classList.add('hidden');
         return;
       }
 
-      const selectedItems = products.filter(product => selectedQuantities.has(product.id));
-      const totalUnits = Array.from(selectedQuantities.values()).reduce((sum, value) => sum + value, 0);
-      selectedCountEl.textContent = `${selectedItems.length} product${selectedItems.length === 1 ? '' : 's'} selected (${totalUnits} unit${totalUnits === 1 ? '' : 's'}).`;
-
+      const selectedItems = products.filter(product => selected.has(product.id));
+      selectedCountEl.textContent = `${selectedItems.length} product${selectedItems.length === 1 ? '' : 's'} selected.`;
       selectedItems.slice(0, 4).forEach(product => {
         const item = document.createElement('li');
-        item.textContent = `${selectedQuantities.get(product.id)} × ${product.name}`;
+        item.textContent = product.name;
         selectedProductsEl.appendChild(item);
       });
 
       if (selectedItems.length > 4) {
         const overflowNotice = document.createElement('li');
-        overflowNotice.textContent = `And ${selectedItems.length - 4} more selected products.`;
+        overflowNotice.textContent = `And ${selectedItems.length - 4} more selected items.`;
         overflowNotice.style.fontStyle = 'italic';
         overflowNotice.style.color = '#ffdbe4';
         selectedProductsEl.appendChild(overflowNotice);
@@ -279,10 +255,8 @@
       const email = formData.get('email').trim();
       const subject = formData.get('subject').trim();
       const message = formData.get('message').trim();
-      const selectedItems = products.filter(product => selectedQuantities.has(product.id));
-      const productsList = selectedItems
-        .map(product => `- ${selectedQuantities.get(product.id)} × ${product.name}`)
-        .join('\r\n');
+      const selectedItems = products.filter(product => selected.has(product.id));
+      const productsList = selectedItems.map(product => `- ${product.name}`).join('\r\n');
 
       const body = `Dear CH Asia team,\r\n\r\nI would like to order the following products:\r\n${productsList}\r\n\r\nContact details:\r\nName: ${name}\r\nEmail: ${email}\r\n\r\nAdditional notes:\r\n${message}`;
       window.location.href = `mailto:rhamuel123@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
