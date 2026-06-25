@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Product Listings | CH Asia</title>
-  <meta name="description" content="Browse CH Asia electrical products, filter by category, select items, and submit your order request via email." />
+  <title>Product Listings | Kema Energy</title>
+  <meta name="description" content="Browse Kema Energy electrical products, filter by category, select items, and submit your order request via email." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="CHAsialogo.png" type="image/png" />
+  <link rel="icon" href="logo.png" type="image/png" />
 </head>
 <body>
   <nav id="navbar" class="navbar">
     <div class="container navbar-inner">
       <a class="logo" href="index.html">
-        <img src="CHAsialogo.png" alt="CH Asia logo" />
+        <img src="logo.png" alt="KEMA logo" />
       </a>
       <div class="nav-links">
-        <a href="#top">Home</a>
-        <a href="#products">Products</a>
-        <a href="#order">Order</a>
-        <a href="#contact">Contact</a>
+        <a href="index.html#top">About</a>
+        <a href="index.html#products">Products</a>
+        <a href="index.html#clients">Clients</a>
+        <a href="index.html#contact">Contact</a>
       </div>
     </div>
   </nav>
@@ -29,7 +29,7 @@
   <main class="container content-stack">
     <section id="top" class="panel">
       <h1>Product Listings</h1>
-      <p class="lead">Search and filter products, select the ones you want, then submit your order request by email.</p>
+      <p class="lead">Search and filter products, select the ones you want, set your quantities, then submit your order request by email.</p>
     </section>
 
     <section id="products" class="panel">
@@ -55,7 +55,7 @@
     <section id="order" class="panel order-panel">
       <div class="order-summary-panel">
         <h2>Your order selection</h2>
-        <p class="lead">Selected products appear below. Add your contact details and submit by email.</p>
+        <p class="lead">Selected products and quantities appear below. Add your contact details and submit by email.</p>
         <div id="selectedCount" class="selected-count">No products selected yet.</div>
         <ul id="selectedProducts" class="selected-list"></ul>
         <button id="viewAllButton" type="button" class="btn btn-secondary hidden">View all selected products</button>
@@ -83,7 +83,7 @@
 
     <section id="contact" class="panel">
       <h2>Contact</h2>
-      <p>For urgent requests, email <strong>info@chasia.com.ph</strong> or call the numbers listed on the home page.</p>
+      <p>For urgent requests, email <strong>info@kemaenergy.com</strong> or call the numbers listed on the home page.</p>
     </section>
   </main>
 
@@ -102,171 +102,10 @@
 
   <footer class="footer">
     <div class="container footer-inner">
-      <p>© 2026 CH Asia World of Electric, Inc. All rights reserved.</p>
+      <p>© 2026 Kema Energy Solutions, Inc. All rights reserved.</p>
     </div>
   </footer>
 
-  <script>
-    const products = [
-      { id: 'electrical-01', name: 'Air Circuit Breakers', category: 'Electrical Products', description: 'High-performance air circuit breakers for industrial and commercial power systems.' },
-      { id: 'electrical-02', name: 'Molded Case Circuit Breakers', category: 'Electrical Products', description: 'Reliable molded case breakers for equipment protection.' },
-      { id: 'electrical-03', name: 'Miniature Circuit Breakers', category: 'Electrical Products', description: 'Compact miniature breakers for residential and light-commercial panels.' },
-      { id: 'electrical-04', name: 'Vacuum Circuit Breakers', category: 'Electrical Products', description: 'Durable vacuum breakers for medium-voltage switching.' },
-      { id: 'electrical-05', name: 'Dry Type Transformers', category: 'Electrical Products', description: 'Safe dry-type transformers for indoor distribution applications.' },
-      { id: 'electrical-06', name: 'Busduct / Components', category: 'Electrical Products', description: 'Busduct systems and components for efficient power distribution.' },
-      { id: 'electrical-07', name: 'Generator Sets', category: 'Electrical Products', description: 'Reliable generator sets for backup power and remote installations.' },
-      { id: 'electrical-08', name: 'Variable Frequency Drive (VFD)', category: 'Electrical Products', description: 'VFD solutions for motor control and energy savings.' },
-      { id: 'electrical-09', name: 'Battery / UPS', category: 'Electrical Products', description: 'Battery and UPS systems for power continuity and protection.' },
-      { id: 'electrical-10', name: 'Contactors, Timers and Relays', category: 'Electrical Products', description: 'Control devices for automation and safety circuits.' },
-      { id: 'assemble-01', name: 'Capacitor Bank', category: 'Assemble Products', description: 'Capacitor bank systems for power factor correction.' },
-      { id: 'assemble-02', name: 'High / Medium Voltage Switchgears', category: 'Assemble Products', description: 'High/medium voltage switchgear assemblies for distribution networks.' },
-      { id: 'assemble-03', name: 'Low Voltage Switchgears', category: 'Assemble Products', description: 'Low voltage switchgear for building and industrial systems.' },
-      { id: 'assemble-04', name: 'Meter Center', category: 'Assemble Products', description: 'Meter centers for residential and commercial metering solutions.' },
-      { id: 'assemble-05', name: 'Motor Control Center', category: 'Assemble Products', description: 'Motor control centers for factory and plant automation.' },
-      { id: 'assemble-06', name: 'Loose Controllers', category: 'Assemble Products', description: 'Loose controllers and modular control devices.' },
-      { id: 'assemble-07', name: 'Panel Boards', category: 'Assemble Products', description: 'Panel boards for distribution and branch circuit protection.' },
-      { id: 'assemble-08', name: 'Solar Energy System', category: 'Assemble Products', description: 'Solar energy systems for sustainable power generation.' },
-      { id: 'assemble-09', name: 'Synchronizing Panel', category: 'Assemble Products', description: 'Panels to synchronize multiple generators and power sources.' },
-      { id: 'package-01', name: 'Automatic Meter Reading (AMR) System', category: 'Package Products', description: 'Turnkey AMR solutions for automated metering and data collection.' },
-      { id: 'package-02', name: 'Busduct', category: 'Package Products', description: 'Pre-engineered busduct packages for rapid installation.' },
-      { id: 'package-03', name: 'Electrical Works', category: 'Package Products', description: 'Complete electrical works packages for turnkey projects.' },
-      { id: 'package-04', name: 'First Private Pole', category: 'Package Products', description: 'Private pole solutions for power service entry installations.' },
-      { id: 'package-05', name: 'Motor Control Center', category: 'Package Products', description: 'Packaged motor control center solutions.' },
-      { id: 'package-06', name: 'Loose Controllers', category: 'Package Products', description: 'Packaged loose controller solutions for controls and protection.' },
-      { id: 'package-07', name: 'Substations', category: 'Package Products', description: 'Complete substation package solutions for transmission and distribution.' }
-    ];
-
-    const selected = new Set();
-    const productGrid = document.getElementById('productGrid');
-    const selectedProductsEl = document.getElementById('selectedProducts');
-    const selectedCountEl = document.getElementById('selectedCount');
-    const viewAllButton = document.getElementById('viewAllButton');
-    const popup = document.getElementById('selectedPopup');
-    const popupSelectedCount = document.getElementById('popupSelectedCount');
-    const popupSelectedList = document.getElementById('popupSelectedList');
-    const closePopup = document.getElementById('closePopup');
-    const searchInput = document.getElementById('productSearch');
-    const filterSelect = document.getElementById('categoryFilter');
-    const orderForm = document.getElementById('orderForm');
-
-    function renderProducts() {
-      const query = searchInput.value.trim().toLowerCase();
-      const category = filterSelect.value;
-      productGrid.innerHTML = '';
-
-      const filtered = products.filter(product => {
-        const matchesSearch = [product.name, product.description, product.category]
-          .some(text => text.toLowerCase().includes(query));
-        const matchesCategory = category === 'all' || product.category === category;
-        return matchesSearch && matchesCategory;
-      });
-
-      if (filtered.length === 0) {
-        productGrid.innerHTML = '<div class="empty-state">No products match your search or filter.</div>';
-        return;
-      }
-
-      filtered.forEach(product => {
-        const card = document.createElement('article');
-        card.className = 'product-card panel';
-        card.innerHTML = `
-          <div class="product-card-head">
-            <label class="checkbox-label">
-              <input type="checkbox" data-id="${product.id}" ${selected.has(product.id) ? 'checked' : ''}>
-              <span>${product.name}</span>
-            </label>
-          </div>
-          <p>${product.description}</p>
-        `;
-
-        const checkbox = card.querySelector('input[type="checkbox"]');
-        checkbox.addEventListener('change', () => {
-          if (checkbox.checked) selected.add(product.id);
-          else selected.delete(product.id);
-          updateSelection();
-        });
-
-        productGrid.appendChild(card);
-      });
-    }
-
-    function updateSelection() {
-      selectedProductsEl.innerHTML = '';
-      if (selected.size === 0) {
-        selectedCountEl.textContent = 'No products selected yet.';
-        viewAllButton.classList.add('hidden');
-        return;
-      }
-
-      const selectedItems = products.filter(product => selected.has(product.id));
-      selectedCountEl.textContent = `${selectedItems.length} product${selectedItems.length === 1 ? '' : 's'} selected.`;
-      selectedItems.slice(0, 4).forEach(product => {
-        const item = document.createElement('li');
-        item.textContent = product.name;
-        selectedProductsEl.appendChild(item);
-      });
-
-      if (selectedItems.length > 4) {
-        const overflowNotice = document.createElement('li');
-        overflowNotice.textContent = `And ${selectedItems.length - 4} more selected items.`;
-        overflowNotice.style.fontStyle = 'italic';
-        overflowNotice.style.color = '#ffdbe4';
-        selectedProductsEl.appendChild(overflowNotice);
-        viewAllButton.classList.remove('hidden');
-      } else {
-        viewAllButton.classList.add('hidden');
-      }
-    }
-
-    viewAllButton.addEventListener('click', () => {
-      const selectedItems = products.filter(product => selected.has(product.id));
-      popupSelectedCount.textContent = `${selectedItems.length} selected product${selectedItems.length === 1 ? '' : 's'}`;
-      popupSelectedList.innerHTML = '';
-      selectedItems.forEach(product => {
-        const item = document.createElement('li');
-        item.textContent = product.name;
-        popupSelectedList.appendChild(item);
-      });
-      popup.classList.remove('hidden');
-      popup.setAttribute('aria-hidden', 'false');
-    });
-
-    closePopup.addEventListener('click', () => {
-      popup.classList.add('hidden');
-      popup.setAttribute('aria-hidden', 'true');
-    });
-
-    popup.addEventListener('click', event => {
-      if (event.target === popup) {
-        popup.classList.add('hidden');
-        popup.setAttribute('aria-hidden', 'true');
-      }
-    });
-
-    orderForm.addEventListener('submit', event => {
-      event.preventDefault();
-      if (selected.size === 0) {
-        alert('Please select at least one product before sending your order.');
-        return;
-      }
-
-      const formData = new FormData(orderForm);
-      const name = formData.get('name').trim();
-      const email = formData.get('email').trim();
-      const subject = formData.get('subject').trim();
-      const message = formData.get('message').trim();
-      const selectedItems = products.filter(product => selected.has(product.id));
-      const productsList = selectedItems.map(product => `- ${product.name}`).join('\r\n');
-
-      const body = `Dear CH Asia team,\r\n\r\nI would like to order the following products:\r\n${productsList}\r\n\r\nContact details:\r\nName: ${name}\r\nEmail: ${email}\r\n\r\nAdditional notes:\r\n${message}`;
-      window.location.href = `mailto:rhamuel123@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    });
-
-    searchInput.addEventListener('input', renderProducts);
-    filterSelect.addEventListener('change', renderProducts);
-
-    renderProducts();
-    updateSelection();
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
