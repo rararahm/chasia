@@ -92,14 +92,6 @@
         </div>
       </section>
 
-      <section id="products" class="panel brands-panel">
-        <h2>Our Brands</h2>
-        <figure class="brands-figure">
-          <img src="Brands.jpg" alt="KEMA brands showcase" />
-          <figcaption>Trusted global electrical brands represented by Kema Energy Solutions.</figcaption>
-        </figure>
-      </section>
-
       <section class="panel">
         <h2>Product Categories</h2>
         <div class="categories-grid">
@@ -176,6 +168,27 @@
         </div>
       </section>
       
+<section class="panel">
+        <h2>What Our Clients Say</h2>
+        <div class="staff">
+          <div class="staff-card">
+            <img src="customer.png">
+            <h4>Customer-Centric Approach</h4>
+            <p>"Beyond technology, Kema Energy Solutions places significant emphasis on building strong relationships with clients. Their collaborative style, transparent communication, and tailored solutions make them a trusted partner in the energy sector. This customer-first mindset ensures that each project aligns with client needs while maintaining high standards of quality."</p>
+          </div>
+          <div class="staff-card">
+            <img src="customer.png">
+            <h4>Technical Expertise and Reliability </h4>
+            <p>"The company’s reputation for technical excellence is evident in the way they approach complex energy challenges. Their team combines deep industry knowledge with practical implementation strategies, ensuring that projects are delivered with precision and reliability. Clients can trust that Kema Energy Solutions provides both cutting-edge products and dependable execution."</p>
+          </div>
+          <div class="staff-card">
+            <img src="customer.png">
+            <h4>Commitment to Sustainability </h4>
+            <p>"Kema Energy Solutions demonstrates a strong dedication to advancing clean energy practices. Their focus on innovative solutions for energy efficiency and renewable integration highlights a clear vision for a more sustainable future. This commitment not only benefits clients but also contributes positively to broader environmental goals."</p>
+          </div>
+        </div>
+      </section>
+
       <section id="contact" class="panel contact-panel">
         <div>
           <h2>Contact Us</h2>
@@ -215,6 +228,9 @@
         const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0A${message}`;
         window.location.href = `mailto:info@kemaenergy.com?subject=${encodeURIComponent(subject)}&body=${body}`;
       });
+
+      const button = document.querySelector(".buttontop");
+
     </script>
   </body>
 </html>
