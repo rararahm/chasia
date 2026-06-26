@@ -39,6 +39,7 @@ img { max-width: 100%; }
   
 }
 
+
 .navbar-inner {
   display: flex;
   justify-content: space-between;
@@ -89,6 +90,7 @@ img { max-width: 100%; }
     linear-gradient(135deg, rgba(9, 4, 6, 0.85), rgba(168, 16, 38, 0.68)),
     url('herosection.jpg') center/cover no-repeat;
   overflow: hidden;
+
 }
 
 .hero-overlay {
@@ -688,9 +690,6 @@ h2, h3 { margin-top: 0; color: #F44336; }
     grid-template-columns: 1fr;
   }
 
-  .history-figure {
-    min-height: 280px;
-  }
 }
 
 @media (max-width: 760px) {
@@ -705,11 +704,6 @@ h2, h3 { margin-top: 0; color: #F44336; }
 
   h1 {
     font-size: 2.35rem;
-  }
-
-  .history-figure {
-
-    height:auto;
   }
 }
 
@@ -828,4 +822,122 @@ h2, h3 { margin-top: 0; color: #F44336; }
   margin-bottom: -10px;
   margin-left: 20px;
 
+}
+
+
+.product-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem;
+  flex-wrap: wrap;
+}
+
+.product-card-head h3,
+.product-card-head h4 {
+  flex: 1 1 180px;
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+.qty-label {
+  flex-shrink: 0;
+}
+
+/* ================================
+   EXTRA SMALL SCREENS (≤ 360px)
+   Fix layout break at ~320px
+================================ */
+@media (max-width: 360px) {
+
+  body {
+    font-size: 14px;
+  }
+
+  .container {
+    width: calc(100% - 1rem);
+  }
+
+  /* HERO TEXT */
+  h1 {
+    font-size: 1.8rem;
+    line-height: 1.15;
+  }
+
+  .hero-content {
+    padding: 2rem 0;
+  }
+
+  /* NAV */
+  .nav-links {
+
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .logo img {
+    width: 7rem;
+  }
+
+  /* GRID FIXES (most important part) */
+  .categories-grid,
+  .clients-grid,
+  .products-grid,
+  .staff,
+  .cards-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* FIX MIN WIDTH CARDS */
+  .category-card,
+  .product-card,
+  .staff-card,
+  .client-card {
+    min-width: 0;
+  }
+
+  /* PRODUCT CARD TEXT */
+  .product-card-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .qty-label {
+    font-size: 13px;
+  }
+
+  .qty-input {
+    width: 2.5rem;
+  }
+
+  /* BUTTONS */
+  .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.8rem;
+  }
+
+  /* HISTORY LAYOUT */
+  .history-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .history-figure {
+    height: 280px;
+  }
+
+  /* CONTACT */
+  .contact-panel {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* POPUP */
+  .popup-card {
+    width: 95%;
+  }
+
+  /* REMOVE OVERFLOW RISK */
+  * {
+    word-break: break-word;
+  }
 }

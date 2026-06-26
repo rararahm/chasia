@@ -17,14 +17,7 @@ const products = [
       { id: 'assemble-06', name: 'Loose Controllers', category: 'Assemble Products', description: 'Loose controllers and modular control devices.' },
       { id: 'assemble-07', name: 'Panel Boards', category: 'Assemble Products', description: 'Panel boards for distribution and branch circuit protection.' },
       { id: 'assemble-08', name: 'Solar Energy System', category: 'Assemble Products', description: 'Solar energy systems for sustainable power generation.' },
-      { id: 'assemble-09', name: 'Synchronizing Panel', category: 'Assemble Products', description: 'Panels to synchronize multiple generators and power sources.' },
-      { id: 'package-01', name: 'Automatic Meter Reading (AMR) System', category: 'Package Products', description: 'Turnkey AMR solutions for automated metering and data collection.' },
-      { id: 'package-02', name: 'Busduct', category: 'Package Products', description: 'Pre-engineered busduct packages for rapid installation.' },
-      { id: 'package-03', name: 'Electrical Works', category: 'Package Products', description: 'Complete electrical works packages for turnkey projects.' },
-      { id: 'package-04', name: 'First Private Pole', category: 'Package Products', description: 'Private pole solutions for power service entry installations.' },
-      { id: 'package-05', name: 'Motor Control Center', category: 'Package Products', description: 'Packaged motor control center solutions.' },
-      { id: 'package-06', name: 'Loose Controllers', category: 'Package Products', description: 'Packaged loose controller solutions for controls and protection.' },
-      { id: 'package-07', name: 'Substations', category: 'Package Products', description: 'Complete substation package solutions for transmission and distribution.' }
+      { id: 'assemble-09', name: 'Synchronizing Panel', category: 'Assemble Products', description: 'Panels to synchronize multiple generators and power sources.' }
     ];
 
     const selected = new Map();
